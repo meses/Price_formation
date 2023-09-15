@@ -1,4 +1,6 @@
 from rest_framework import generics
+
+from main.paginators import ItemPaginator
 from main.services import total_price
 
 from main.models import Item
@@ -19,6 +21,7 @@ class ItemCreateAPIView(generics.CreateAPIView):
 class ItemListAPIView(generics.ListAPIView):
     serializer_class = ItemSerializer
     queryset = Item.objects.all()
+    pagination_class = ItemPaginator
 
 
 class ItemRetrieveAPIView(generics.RetrieveAPIView):
