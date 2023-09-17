@@ -30,6 +30,7 @@ class ItemListAPIView(generics.ListAPIView):
 class ItemRetrieveAPIView(generics.RetrieveAPIView):
     serializer_class = ItemSerializer
     queryset = Item.objects.all()
+    permission_classes = [IsAuthenticated]
 
 
 class ItemDestroyAPIView(generics.DestroyAPIView):
