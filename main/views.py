@@ -7,10 +7,10 @@ from rest_framework.permissions import IsAuthenticated, IsAdminUser
 from main.models import Item
 from main.serializers import ItemSerializer
 
+
 class ItemCreateAPIView(generics.CreateAPIView):
     serializer_class = ItemSerializer
     permission_classes = [IsAdminUser]
-
 
     def perform_create(self, serializer):
         data = self.request.data
